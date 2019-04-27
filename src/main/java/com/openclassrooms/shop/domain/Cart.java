@@ -72,8 +72,8 @@ public class Cart {
 	 * @return getProductById in the cart if it finds it
 	 */
 	public Product findProductInCartLines(Long productId) {
-		// TODO implement the method
-		return null;
+		final Predicate<Product> filterById = product -> product.getId().longValue() == productId.longValue();
+		return cartLineList.stream().map(CartLine::getProduct).filter(filterById).findFirst().orElseGet(Product::new);
 	}
 
 	/**
