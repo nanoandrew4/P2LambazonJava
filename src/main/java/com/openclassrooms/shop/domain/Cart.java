@@ -58,8 +58,15 @@ public class Cart {
 	 * @return Get average value of a cart
 	 */
 	public double getAverageValue() {
-		// TODO implement the method
-		return 0.0;
+		double averageValue = 0d;
+		long totalUnitsInCart = 0;
+
+		for (CartLine cartLine : cartLineList) {
+			averageValue += cartLine.getProduct().getPrice() * cartLine.getQuantity();
+			totalUnitsInCart += cartLine.getQuantity();
+		}
+
+		return averageValue / totalUnitsInCart;
 	}
 
 	/**
