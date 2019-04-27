@@ -49,9 +49,7 @@ public class Cart {
 	 * @return total value of a cart
 	 */
 	public double getTotalValue() {
-		//TODO implement the method
-		return 0.0;
-
+		return cartLineList.stream().map(CartLine::getSubtotal).reduce((a, b) -> a += b).orElse(0D);
 	}
 
 	/**
@@ -62,7 +60,7 @@ public class Cart {
 		long totalUnitsInCart = 0;
 
 		for (CartLine cartLine : cartLineList) {
-			averageValue += cartLine.getProduct().getPrice() * cartLine.getQuantity();
+			averageValue += cartLine.getSubtotal();
 			totalUnitsInCart += cartLine.getQuantity();
 		}
 
