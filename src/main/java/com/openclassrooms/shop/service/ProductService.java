@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -30,7 +29,7 @@ public class ProductService {
 	 */
 	public List<Product> getAllProducts() {
 
-		return Arrays.asList(productRepository.findAll());
+		return productRepository.findAll();
 	}
 
 	/**
@@ -40,9 +39,7 @@ public class ProductService {
 	 */
 	public Product getProductById(Long productId)
 	{
-		// TODO implement the method
-		return null;
-
+		return productRepository.findProductById(productId);
 	}
 
 	/**
