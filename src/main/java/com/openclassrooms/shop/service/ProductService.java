@@ -51,7 +51,6 @@ public class ProductService {
 	 */
 	public void updateProductQuantities(Long productId, int quantity)
 	{
-
-		// TODO implement the method
+		productRepository.updateProductStocks(productId, quantity);
 	}
 }

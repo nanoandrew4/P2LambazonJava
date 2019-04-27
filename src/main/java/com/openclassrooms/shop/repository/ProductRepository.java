@@ -49,8 +49,8 @@ public class ProductRepository {
      * @param productId ID of the getProductById
      * @param quantityToRemove Quantity of the getProductById
      */
-    public void updateProductStocks(int productId, int quantityToRemove) {
-        Product product = products.stream().filter(p -> p.getId() == productId).findFirst().get();
+    public void updateProductStocks(Long productId, int quantityToRemove) {
+        Product product = products.stream().filter(p -> p.getId().longValue() == productId.longValue()).findFirst().get();
         product.setStock(product.getStock() - quantityToRemove);
 
         if (product.getStock() == 0){
