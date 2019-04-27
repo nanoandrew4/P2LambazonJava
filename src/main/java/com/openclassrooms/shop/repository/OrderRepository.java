@@ -29,6 +29,7 @@ public class OrderRepository {
      */
     public void Save(Order order)
     {
+		order.setId(System.currentTimeMillis());
         orders.add(order);
     }
 }
