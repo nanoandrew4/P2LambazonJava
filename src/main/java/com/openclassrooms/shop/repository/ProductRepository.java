@@ -45,19 +45,6 @@ public class ProductRepository {
 		return products.stream().filter(p -> p.getStock() > 0).sorted(Comparator.comparing(Product::getName)).collect(Collectors.toList());
     }
 
-	/**
-	 * Finds a product by the ID it was assigned in {@link #generateProductData()}. Since IDs start at 1, and array indices
-	 * at 0, the supplied product ID must be greater than 0.
-	 *
-	 * @param productId Product ID of the product to retrieve, must be greater than 0
-	 * @return The product matching the supplied ID, or an empty product if no product was found
-	 */
-	public Product findProductById(final Long productId) {
-		if (productId > 0 && productId <= products.size())
-			return products.get(productId.intValue() - 1);
-		return new Product();
-	}
-
     /**
      * @param productId ID of the getProductById
      * @param quantityToRemove Quantity of the getProductById
