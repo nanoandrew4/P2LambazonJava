@@ -64,7 +64,7 @@ public class Cart {
 			totalUnitsInCart += cartLine.getQuantity();
 		}
 
-		return averageValue / totalUnitsInCart;
+		return totalUnitsInCart > 0 ? averageValue / totalUnitsInCart : 0;
 	}
 
 	/**
