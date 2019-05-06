@@ -8,7 +8,7 @@ public class Cart {
 	private List<CartLine> cartLineList;
 
 	public Cart() {
-		cartLineList = new ArrayList<>();
+		cartLineList = new ArrayList<CartLine>();
 	}
 
 	/**

@@ -36,11 +36,11 @@ public class ProductService {
 	 * Retrieves a product by id. If the product is not found, an empty product is created and returned.
 	 *
 	 * @param productId Id of the product
-	 * @return a product form the inventory, or an empty product instance if it was not found
+	 * @return a product form the inventory, or null if it was not found
 	 */
 	public Product getProductById(Long productId)
 	{
-		return productRepository.findAll().stream().filter(p -> productId.longValue() == p.getId().longValue()).findFirst().orElseGet(Product::new);
+		return productRepository.findAll().stream().filter(p -> productId.longValue() == p.getId().longValue()).findFirst().orElse(null);
 	}
 
 	/**
